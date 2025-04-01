@@ -2,20 +2,19 @@ import artifacts.Car;
 import artifacts.RaceTrack;
 import artifacts.RaceTrackBox;
 
-import java.util.ArrayList;
-import java.util.List;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        RaceTrackBox box = new RaceTrackBox(100);
-        RaceTrack raceTrack = new RaceTrack(4000, 10, box);
+        RaceTrackBox box = new RaceTrackBox(80);
+        RaceTrack raceTrack = new RaceTrack(500, 10, box);
 
-        List<Car> cars = new ArrayList<>();
-        for (int i = 0; i < 16; i++) {
-            Car car = new Car(String.valueOf(i), raceTrack, 0);
-            cars.add(car);
-        }
+        Car car1 = new Car("Carro 1", raceTrack);
+        Car car2 = new Car("Carro 2", raceTrack);
+        Car car3 = new Car("Carro 3", raceTrack);
+
+        raceTrack.addCar(car1);
+        raceTrack.addCar(car2);
+        raceTrack.addCar(car3);
+
+        raceTrack.start();
     }
 }

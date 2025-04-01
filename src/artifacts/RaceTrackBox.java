@@ -1,39 +1,26 @@
 package artifacts;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class RaceTrackBox {
-    RaceTrack raceTrack;
-    List<Car> cars = new ArrayList<Car>();
+    List<Car> cars = new ArrayList<>();
+    int maxSpeed;
 
-    int maxSpeed = 80;
     public RaceTrackBox(int maxSpeed) {
         this.maxSpeed = maxSpeed;
     }
 
-    public void add(Car... newCars) {
-        cars.addAll(Arrays.asList(newCars));
-        verifyCarsSpeed();
-        addBoxTimeToCars();
-    }
+    public synchronized void add(Car car) {
+        cars.add(car);
 
-    public void verifyCarsSpeed() {
-        for (Car car : cars) {
-            if (car.speed > maxSpeed) {
-                car.penalize();
-            }
-            cars.add(car);
+        if (car.speed > maxSpeed) {
+            car.penalize();
         }
-    }
 
-    public void addBoxTimeToCars() {
-        for (Car car : cars) {
-            if (car.speed > maxSpeed) {
-                car.addTimeInTheBox();
-            }
-            cars.add(car);
-        }
+        car.addTimeInTheBox();
+        car.speed = 60;
+        System.out.println("Carro " + car.getName() + " saiu do box!");
+        cars.remove(car);
     }
 }
