@@ -82,7 +82,7 @@ public class Car extends Thread {
                 requestToGetInTheBox();
             }
 
-            if (rd.nextDouble() < 0.05) { // 5% de chance por segundo
+            if (rd.nextDouble() < 0.1) {
                 breakDown();
                 break;
             }

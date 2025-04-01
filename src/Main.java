@@ -7,13 +7,11 @@ public class Main {
         RaceTrackBox box = new RaceTrackBox(80);
         RaceTrack raceTrack = new RaceTrack(500, 10, box);
 
-        Car car1 = new Car("Carro 1", raceTrack);
-        Car car2 = new Car("Carro 2", raceTrack);
-        Car car3 = new Car("Carro 3", raceTrack);
+        var car1 = new Car("Carro 1", raceTrack);
+        var car2 = new Car("Carro 2", raceTrack);
+        var car3 = new Car("Carro 3", raceTrack);
 
-        raceTrack.addCar(car1);
-        raceTrack.addCar(car2);
-        raceTrack.addCar(car3);
+        raceTrack.addCar(car1, car2, car3);
 
         raceTrack.start();
     }

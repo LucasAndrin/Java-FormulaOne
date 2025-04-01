@@ -27,8 +27,8 @@ public class RaceTrack extends Thread {
         return false;
     }
 
-    public void addCar(Car car) {
-        cars.add(car);
+    public void addCar(Car... newCars) {
+        cars.addAll(List.of(newCars));
     }
 
     public boolean isSafetyCarActive() {
@@ -58,7 +58,7 @@ public class RaceTrack extends Thread {
 
                 if (Math.random() < 0.2) {
                     activateSafetyCar();
-                    Thread.sleep(15000);
+                    Thread.sleep(8000);
                     deactivateSafetyCar();
                 }
             } catch (InterruptedException e) {
